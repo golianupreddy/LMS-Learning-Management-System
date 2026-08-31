@@ -10,15 +10,22 @@ function Footer() {
                 Copyright {year} | All rights reserved &copy; Goli Anup Reddy
             </section>
             <section className='flex items-center justify-center gap-5 text-2xl text-white'>
+                {/* GitHub */}
                 <a href="https://github.com/golianupreddy" target="_blank" rel="noreferrer" className='hover:text-yellow-500 transition-all ease-in-out duration-300'>
                     <BsGithub />
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noreferrer" className='hover:text-yellow-500 transition-all ease-in-out duration-300'>
+
+                {/* LinkedIn Profile */}
+                <a href="https://www.linkedin.com/in/goli-anup-reddy-5b7a8630b/" target="_blank" rel="noreferrer" className='hover:text-yellow-500 transition-all ease-in-out duration-300'>
                     <BsLinkedin />
                 </a>
+
+                {/* Instagram */}
                 <a href="https://instagram.com" target="_blank" rel="noreferrer" className='hover:text-yellow-500 transition-all ease-in-out duration-300'>
                     <BsInstagram />
                 </a>
+
+                {/* Twitter */}
                 <a href="https://twitter.com" target="_blank" rel="noreferrer" className='hover:text-yellow-500 transition-all ease-in-out duration-300'>
                     <BsTwitter />
                 </a>
