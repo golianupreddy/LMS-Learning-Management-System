@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeLayout from '../../Layouts/HomeLayout';
+import HomeLayout from '../../layouts/HomeLayout';
 import CourseCard from '../../components/CourseCard';
 
 function CourseList() {
