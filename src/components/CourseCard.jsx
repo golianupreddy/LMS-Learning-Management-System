@@ -1,18 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
 import { IoArrowForward } from "react-icons/io5";
 
-// ప్రతీ కోర్సుకు సంబంధించిన PDF / Google Drive లింక్స్
+// Course PDF / Reference materials mapping
 const coursePdfs = {
-    "Full Stack Web Development (MERN)": "https://drive.google.com/file/d/YOUR_MERN_PDF_LINK/view?usp=sharing",
-    "Data Structures & Algorithms in Java": "https://drive.google.com/file/d/YOUR_DSA_PDF_LINK/view?usp=sharing",
-    "Python for Data Science & AI": "https://drive.google.com/file/d/YOUR_PYTHON_PDF_LINK/view?usp=sharing"
+    "Full Stack Web Development (MERN)": "https://cs.fyi/guide/full-stack-web-development",
+    "Data Structures & Algorithms in Java": "https://introcs.cs.princeton.edu/java/cheatsheet/",
+    "Python for Data Science & AI": "https://datacamp-community-prod.s3.amazonaws.com/e30fbcd9-f595-4a9f-803d-05ca5bf84612"
 };
 
 function CourseCard({ data }) {
     const navigate = useNavigate();
 
-    // కోర్సు టైటిల్ ఆధారంగా PDF లింక్ తీసుకోవడం (లేకపోతే data?.pdfUrl లేదా డీఫాల్ట్ లింక్)
-    const pdfLink = coursePdfs[data?.title] || data?.pdfUrl || "#";
+    // Get PDF link by course title, fallback to data.pdfUrl or default link
+    const pdfLink = coursePdfs[data?.title] || data?.pdfUrl || "https://www.w3schools.com";
 
     return (
         <div>
@@ -30,7 +30,7 @@ function CourseCard({ data }) {
                         {data?.description}
                     </p>
 
-                    {/* Buttons Row */}
+                    {/* Action Buttons */}
                     <div className="flex items-center gap-3 mt-4 flex-wrap">
                         {/* Explore Course Button */}
                         <div 
