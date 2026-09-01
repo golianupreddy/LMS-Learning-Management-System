@@ -1,18 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
 import { IoArrowForward } from "react-icons/io5";
 
-// Course PDF / Reference materials mapping
+// Course PDF / Reference materials mapping (Stable, Verified URLs)
 const coursePdfs = {
-    "Full Stack Web Development (MERN)": "https://cs.fyi/guide/full-stack-web-development",
+    "Full Stack Web Development (MERN)": "https://roadmap.sh/full-stack",
     "Data Structures & Algorithms in Java": "https://introcs.cs.princeton.edu/java/cheatsheet/",
-    "Python for Data Science & AI": "https://datacamp-community-prod.s3.amazonaws.com/e30fbcd9-f595-4a9f-803d-05ca5bf84612"
+    "Python for Data Science & AI": "https://www.pythoncheatsheet.org/"
 };
 
 function CourseCard({ data }) {
     const navigate = useNavigate();
 
     // Get PDF link by course title, fallback to data.pdfUrl or default link
-    const pdfLink = coursePdfs[data?.title] || data?.pdfUrl || "https://www.w3schools.com";
+    const pdfLink = coursePdfs[data?.title] || data?.pdfUrl || "https://roadmap.sh";
 
     return (
         <div>
