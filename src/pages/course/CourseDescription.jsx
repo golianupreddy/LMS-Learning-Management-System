@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import HomeLayout from "../../layouts/HomeLayout";
@@ -7,12 +8,20 @@ function CourseDescription() {
     const navigate = useNavigate();
     const { role, data } = useSelector((state) => state.auth);
 
+    useEffect(() => {
+        if (!state) {
+            navigate("/courses");
+        }
+    }, [state, navigate]);
+
+    if (!state) return null;
+
     return (
         <HomeLayout>
             <div className="min-h-[90vh] pt-12 px-6 sm:px-12 md:px-20 flex flex-col items-center justify-center text-white">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-10 w-full max-w-5xl items-center">
                     
-                    {/* Left Side: Thumbnail, Lectures, Instructor & Button */}
+                    {/* Left Side: Thumbnail, Meta Info & Button */}
                     <div className="space-y-5 flex flex-col items-center justify-center">
                         <img 
                             className="h-64 w-full max-w-md rounded-lg object-cover shadow-lg border border-slate-700"
@@ -32,7 +41,7 @@ function CourseDescription() {
                                 </p>
                             </div>
 
-                            {/* Watch Lectures / Subscribe Button */}
+                            {/* Watch / Subscribe Button */}
                             {role === "ADMIN" || data?.user?.subscription?.status === 'active' ? (
                                 <button
                                     onClick={() => navigate("/course/displaylectures", { state: { ...state } })}
